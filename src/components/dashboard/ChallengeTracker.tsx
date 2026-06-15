@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, XCircle, AlertTriangle, Target, TrendingDown, Shield, ChevronRight } from "lucide-react";
+import { CheckCircle2, AlertTriangle, Target, TrendingDown, Shield, ChevronRight, CalendarDays } from "lucide-react";
 import type { Challenge } from "@/types/database";
 import { calcChallengeMetrics } from "@/lib/db";
 
@@ -258,7 +258,7 @@ export default function ChallengeTracker({ challenge, todayPnl = 0 }: ChallengeT
           />
         </div>
 
-        <div className="mt-4 pt-4 border-t border-white/5 grid grid-cols-3 gap-3 text-center">
+        <div className="mt-4 pt-4 border-t border-white/5 grid grid-cols-4 gap-3 text-center">
           <div>
             <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Account Size</p>
             <p className="text-sm font-bold text-white">${(challenge.account_size / 1000).toFixed(0)}K</p>
@@ -270,6 +270,15 @@ export default function ChallengeTracker({ challenge, todayPnl = 0 }: ChallengeT
           <div>
             <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Min Days</p>
             <p className="text-sm font-bold text-white">None</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-1 mb-1">
+              <CalendarDays className="h-3 w-3 text-gray-500" />
+              <p className="text-xs text-gray-500 uppercase tracking-wide">Days Active</p>
+            </div>
+            <p className="text-sm font-bold text-white">
+              {Math.floor((Date.now() - new Date(challenge.created_at).getTime()) / (1000 * 60 * 60 * 24))}
+            </p>
           </div>
         </div>
       </div>
