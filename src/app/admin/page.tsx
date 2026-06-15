@@ -124,7 +124,7 @@ export default function AdminDashboard() {
 
       {/* Challenge pass rate */}
       <div className="rounded-xl glass-panel border border-white/5 p-6">
-        <h2 className="text-base font-bold text-white mb-4">Challenge Pass Rate</h2>
+        <h2 className="text-base font-bold text-white mb-4">Challenge Pass Rates</h2>
         <div className="flex items-center gap-4">
           <div className="flex-1 h-3 rounded-full bg-white/5 overflow-hidden">
             <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${passRate}%` }} />
